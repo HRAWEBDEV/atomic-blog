@@ -1,8 +1,8 @@
 import List from './List';
-function Posts({ posts }) {
+function Posts() {
  return (
   <section>
-   <List posts={posts} />
+   <List />
   </section>
  );
 }

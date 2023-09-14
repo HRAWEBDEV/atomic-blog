@@ -1,11 +1,10 @@
-import { useEffect, useState, createContext } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Archive from './components/Archive';
 import Main from './components/Main';
 import { createRandomPost } from './utils/createRandomPost';
-
-const postsContext = createContext(null);
+import { postsContext } from './postsContex';
 
 function App() {
  const [posts, setPosts] = useState(() =>
@@ -58,14 +57,9 @@ function App() {
      {isFakeDark ? '☀️' : '🌙'}
     </button>
 
-    <Header
-     posts={searchedPosts}
-     onClearPosts={handleClearPosts}
-     searchQuery={searchQuery}
-     setSearchQuery={setSearchQuery}
-    />
-    <Main posts={searchedPosts} onAddPost={handleAddPost} />
-    <Archive onAddPost={handleAddPost} />
+    <Header />
+    <Main />
+    <Archive />
     <Footer />
    </section>
   </postsContext.Provider>
