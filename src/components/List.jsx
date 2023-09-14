@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import { postsContext } from '../postsContex';
+import { usePosts } from './PostsProvider';
 
 function List() {
- const { posts } = useContext(postsContext);
+ const { posts } = usePosts();
  return (
   <ul>
    {posts.map((post, i) => (

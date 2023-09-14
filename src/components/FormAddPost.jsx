@@ -1,7 +1,8 @@
-import { useState, useContext } from 'react';
-import { postsContext } from '../postsContex';
+import { useState } from 'react';
+import { usePosts } from './PostsProvider';
+
 function FormAddPost() {
- const { onAddPost } = useContext(postsContext);
+ const { onAddPost } = usePosts();
  const [title, setTitle] = useState('');
  const [body, setBody] = useState('');
 
