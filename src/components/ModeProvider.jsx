@@ -1,5 +1,5 @@
 import PropsType from 'prop-types';
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 
 const modeContext = createContext(false);
 
@@ -17,7 +17,16 @@ const ModeProvider = ({ children }) => {
   },
   [isDark]
  );
- return <modeContext value={{ isDark, setIsDark }}>{children}</modeContext>;
+
+ const contextValue = useMemo(
+  () => ({
+   isDark,
+   setIsDark,
+  }),
+  [isDark, setIsDark]
+ );
+
+ return <modeContext value={contextValue}>{children}</modeContext>;
 };
 
 ModeProvider.propsTypes = {
